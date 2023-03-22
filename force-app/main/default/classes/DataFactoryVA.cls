@@ -1,4 +1,5 @@
-public with sharing class DataFactoryVA {
+public with sharing class DataFactoryVA
+{
     public DataFactoryVA() {
 
     }
