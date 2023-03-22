@@ -1,12 +1,12 @@
 # Unique name for this workflow
-name: 'Code Validation against QA environment'
+name: 'PR validation for QA environment'
 
 # Definition when the wrokflow should be run
 on:
-  push:
-    #branches: [feature*, release*]
+  pull_request:
+    #branches: [master, release*]
     branches:
-      - 'feature*'
+      - 'master'
       - 'release-branch*'
       - 'release-master*'
     path:
@@ -64,5 +64,5 @@ jobs:
       # Run validation command based on package.xml
       - name: 'Validating Delta changes'
         run: |
-          sfdx force:source:deploy --checkonly -x package/package.xml --verbose --json
+          sfdx force:source:deploy -x package/package.xml --verbose --json
 
